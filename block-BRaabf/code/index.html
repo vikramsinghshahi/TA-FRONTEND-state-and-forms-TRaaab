@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+     
+    </style>
+    <title>Color Pallete</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="root"></div>
+    </div>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <!-- Load Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./colors.js"></script>
+    <script type="text/babel">
+      let root = document.getElementById('root');
+
+
+
+          class App extends React.Component{
+          constructor(props){
+              super(props);
+              this.state = {
+                  counter : 0
+              }
+          }
+
+          handleIncrememnt = ()=>{
+          this.setState({
+            counter :this.state.counter + 1,
+          }
+             
+          )
+      } ;
+
+      handleDecrememnt = ()=>{
+          this.setState({
+            counter :this.state.counter - 1,
+          }
+             
+          )
+      } 
+
+      handleReset = ()=>{
+          this.setState({
+            counter :0,
+          }
+             
+          )
+      } 
+
+
+          render(){
+            return <>
+                <div>{this.state.counter}</div>
+                <div>
+                    <p>Steps</p>
+                    <button>5</button>
+                    <button>10</button>
+                    <button>15</button>
+                </div>
+                <div>
+                    <button onClick={ this.handleIncrememnt }>Increment</button>
+                    <button onClick = {this.handleDecrememnt}>decrement</button>
+                    <button onClick = {this.handleReset} >Reset</button>
+                </div>
+              </>
+          };
+      }
+    
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
