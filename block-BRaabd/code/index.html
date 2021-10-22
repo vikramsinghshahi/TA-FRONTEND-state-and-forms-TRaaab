@@ -4,6 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        button{
+            background-color: rgb(149, 197, 181);
+            padding: 10px 20px;
+            margin-right: 20px;
+            border: 2px solid grey;
+
+        }
+
+        .active{
+            background-color: black;
+            color: white;
+        }
+    </style>
     <title>Color Pallete</title>
   </head>
 
@@ -28,24 +42,32 @@
     //   function App(){
     //       return <h1>Welcome</h1>
     //   }
+
+    let labels = ["basketball", "pubg", "tiger", "laptop", "phone", "cricket", ]
     
 
 
 
       class App extends React.Component{
           constructor(props){
-              super(props)
+              super(props);
+              this.state = {
+                  active : "pubg"
+              }
           }
           render(){
-              return <>
-              <button onClick={()=> alert("hello world")}>Basketball</button>
-              <button>PubG</button>
-              <button>Tiger</button>
-              <button>Phone</button>
-              <button>Laptop</button>
-              <button>Cricket</button>
+            return <>
+              {
+                labels.map((name)=>(
+                 <button className={this.state.active === name ? "active" : ""} key={name} onClick={()=>{
+                     this.setState({
+                         active: name,
+                     });
+                 }}>{name}</button>
+                ))
+              }
               <div>
-                <img src="../assets/basketball.jpg" alt="" style={{width:"200px"}}/>
+                <img src= {`../assets/${this.state.active}.jpg`} alt ={this.state.active} style = { {width: "200px"}}/>
              </div>
               
               </>
