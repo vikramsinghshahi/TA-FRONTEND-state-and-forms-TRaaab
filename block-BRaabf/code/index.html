@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-     
+     .active--step{
+         background-color:black;
+         color:  white;
+     }
     </style>
     <title>Color Pallete</title>
   </head>
@@ -34,13 +37,16 @@
           constructor(props){
               super(props);
               this.state = {
-                  counter : 0
+                  counter : 0,
+                  step: 5,
+                  max:15,
               }
           }
 
           handleIncrememnt = ()=>{
+              let { counter, step , max } = this.state
           this.setState({
-            counter :this.state.counter + 1,
+            counter :counter + step > max ? counter : counter + step ,
           }
              
           )
@@ -48,7 +54,7 @@
 
       handleDecrememnt = ()=>{
           this.setState({
-            counter :this.state.counter - 1,
+            counter :this.state.counter - this.state.step,
           }
              
           )
@@ -68,9 +74,23 @@
                 <div>{this.state.counter}</div>
                 <div>
                     <p>Steps</p>
-                    <button>5</button>
-                    <button>10</button>
-                    <button>15</button>
+                    {
+                        [5,10,15].map((n)=> (
+                            <button key={n} onClick = {()=>{
+                                this.setState({ step: n})
+                            }} className = { this.state.step === n ? "active--step" : ""}>{n}</button>
+                        ))
+                    }
+                </div>
+                <div>
+                    <p>Steps</p>
+                    {
+                        [15,100,200].map((n)=> (
+                            <button key={n} onClick = {()=>{
+                                this.setState({ max: n})
+                            }} className = { this.state.max === n ? "active--step" : ""}>{n}</button>
+                        ))
+                    }
                 </div>
                 <div>
                     <button onClick={ this.handleIncrememnt }>Increment</button>
