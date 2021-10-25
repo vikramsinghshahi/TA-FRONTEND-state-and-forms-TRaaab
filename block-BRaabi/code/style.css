@@ -46,3 +46,64 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+
+*, *::before,*::after{
+    box-sizing: border-box;
+}
+
+.heading{
+    text-align: center;
+}
+/* 
+.heading p{
+    border: 2px solid black;
+} */
+
+.heading p{
+    color: red;
+    font-size: 30px;
+    padding: 10px;
+    display: inline-block;
+    border: 2px solid red;
+    
+}
+
+.question{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: sandybrown;
+    margin: 10px 0;
+}
+
+.active-question{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: rgb(161, 185, 161);
+    margin: 10px 0;
+}
+
+.question h2:hover{
+    cursor: pointer;
+}
+
+.active-question h2{
+    cursor: pointer;
+}
+.not-active{
+    display:  none;
+}
+
+.active{
+    display: block;
+}
+
+.active-question{
+    color: green;
+}
