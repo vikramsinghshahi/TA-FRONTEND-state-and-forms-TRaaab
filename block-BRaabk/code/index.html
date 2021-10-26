@@ -32,23 +32,44 @@
         constructor(){
             super();
             this.state = {
-                active: "",
+                active: "All",
             }
 
         }
 
         render(){
+
+            let allCategories = data.filter((d)=> d.category === this.state.active );
+
             return <>
            <h1>Our Menu</h1>
            <ul>
-              <li onClick={()=>{}} >All</li>
-              <li>BreakFast</li>
-              <li>Lunch</li>
-              <li>Shakes</li>
-            </ul>
-            <ul>
-                {
+              <li onClick={()=>{
+                  this.setState({
+                      active:"All"
+                  })
+              }} >All</li>
+              <li onClick={()=>{
+                  this.setState({
+                      active:"breakfast"
+                  })
+              }} >BreakFast</li>
+              <li onClick={()=>{
+                  this.setState({
+                      active:"lunch"
+                  })
+              }} >Lunch</li>
+              <li onClick={()=>{
+                  this.setState({
+                      active:"shakes"
+                  })
+              }} >Shakes</li>
+
+        
+    
+              { this.state.active === "All" ?  
                         data.map((foodItem)=>(
+                
                     <li key={foodItem.id}>
                     <div>
                         <img  src={foodItem.img} alt="" style={ {width:200}}/>
@@ -60,9 +81,23 @@
                     </div>
                    </li>
                             
-                        ))
-                    }
+                 ))  
+                :  
 
+                 allCategories.map((foodItem)=>(
+                
+                <li key={foodItem.id}>
+                <div>
+                    <img  src={foodItem.img} alt="" style={ {width:200}}/>
+                </div>
+                <div>
+                    <h2 >{foodItem.title}</h2>
+                    <span >{foodItem.price}</span>
+                    <p >{foodItem.desc}</p>
+                </div>
+               </li>
+                ))
+                 }
             </ul>
         </>
         }
