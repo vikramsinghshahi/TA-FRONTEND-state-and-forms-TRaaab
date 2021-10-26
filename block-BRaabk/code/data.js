@@ -70,6 +70,14 @@ let data = [
       price: 16.99,
       img: "../assets/images/item-4.jpeg",
       desc: "skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
-    }
+    },
+    {
+        id: 10,
+        title: "Juices",
+        category: "juices",
+        price: 16.99,
+        img: "../assets/images/item-7.jpeg",
+        desc: "skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
+      }
   ]
   
