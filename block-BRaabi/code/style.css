@@ -1,0 +1,109 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+*, *::before,*::after{
+    box-sizing: border-box;
+}
+
+.heading{
+    text-align: center;
+}
+/* 
+.heading p{
+    border: 2px solid black;
+} */
+
+.heading p{
+    color: red;
+    font-size: 30px;
+    padding: 10px;
+    display: inline-block;
+    border: 2px solid red;
+    
+}
+
+.question{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: sandybrown;
+    margin: 10px 0;
+}
+
+.active-question{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: rgb(161, 185, 161);
+    margin: 10px 0;
+}
+
+.question h2:hover{
+    cursor: pointer;
+}
+
+.active-question h2{
+    cursor: pointer;
+}
+.not-active{
+    display:  none;
+}
+
+.active{
+    display: block;
+}
+
+.active-question{
+    color: green;
+}
