@@ -1,0 +1,135 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(235, 235, 235);
+}
+
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+  width: 25%;
+  padding: 0 1rem;
+}
+
+.movie h2 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.movie p {
+  font-size: 1rem;
+  color: black;
+  padding: 0.3rem;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+li {
+  list-style: none;
+}
+
+.movie button {
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background-color: wheat;
+}
+
+.name {
+  border-right: 1px solid rgb(236, 236, 236);
+}
+
+.more-info {
+  transition: 1s;
+  border-top: 1px solid rgb(236, 236, 236);
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.center {
+  padding-top: 1rem;
+}
+
+.movielist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie {
+  width: 32%;
+  margin-bottom: 2rem;
+  height: 16rem;
+  background-color: wheat;
+}
+
+.movie img {
+  height: 10rem;
+}
+
+/* Modal */
+
+.modal {
+  background-color: wheat;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.images {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.images > div {
+  width: 32%;
+  margin: 0.2rem 0.3rem;
+}
+
+.images img {
+  height: 8rem;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.btn-close {
+  text-align: right;
+}
+
+.btn-close button {
+  padding: 0.5rem 1.2rem;
+  margin-bottom: 0.5rem;
+  background-color: cadetblue;
+  color: white;
+  display: inline-block;
+}
+
+.info {
+  font-weight: 400;
+  padding: 0.2rem;
+}
