@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="root">
+
+    </main>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    let root = document.getElementById("root");
+
+    // function App(){
+    //     return <>
+    //     <h1>Welcome</h1>
+    //     </>
+    // }
+
+    class App extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {
+                inputText: '',
+                fontSize: '16',
+            };
+        }
+        handleChange = (event) => {
+            this.setState({ inputText: event.target.value });
+        };
+
+        handleFontSize = (event) => {
+            this.setState({
+            fontSize: event.target.value,
+            });
+        };
+
+        render(){
+
+            let fonts = [
+            'Roboto',
+            'Poppins',
+            'Open Sans',
+            'Georama',
+            'Noto Sans JP',
+            'Oswald',
+            'Style Script',
+            'Palette Mosaic',
+            'Merriweather',
+            'Crimson Pro',
+          ];
+            return<>
+            <div className="user-input">
+              <select className="select">
+                <option value="Custom">Custom</option>
+                <option value="Custom">one</option>
+              </select>
+              <input
+                value={this.state.inputText}
+                onChange={this.handleChange}
+                type="text"
+                placeholder="type something"
+              />
+            </div>
+            <div className="slider">
+              <p className="range_par">{this.state.fontSize}px</p>
+              <input
+                value={this.state.fontSize}
+                type="range"
+                min="16"
+                max="100"
+                onChange={this.handleFontSize}
+              />
+            </div>
+            <section>
+            <ul className="fonts">
+              {fonts.map((font) => (
+                <li className="font" key={font}>
+                  <h2>{font}</h2>
+                  <p style={{ fontFamily:font, fontSize: this.state.fontSize + "px" }}>
+                    {this.state.inputText}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        
+            
+            </>
+        }
+    }
+
+    ReactDOM.render(<App /> , root)
+</script>
+</body>
+</html>
