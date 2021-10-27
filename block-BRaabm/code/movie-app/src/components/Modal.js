@@ -3,6 +3,8 @@ import React from 'react';
 class Modal extends React.Component {
   render() {
     let movie = this.props;
+    console.log(this,this.props)
+    
    
     return (
       <>
