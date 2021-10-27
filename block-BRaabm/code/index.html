@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <main id="root">
@@ -33,16 +34,81 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            active: "",
+            isActive: "false",
+            Title : "",
         };
     }
 
+     
+    handleClick = (movieTitle)=> {
+            return this.setState({
+                isActive: "true",
+                Title : movieTitle,
+                
+            })
+            };
+
+
+
+
+
     render(){
+        {
+           console.log(this.state.isActive, this.state.Title)
+           
+        }
         return <>
-    <h1>Welcome</h1>
+        <aside>
+            <ul>
+                <li>Home</li>
+                <li>Contact</li>
+                <li>About</li>
+            </ul>
+            <div>
+                <p>Hide</p>
+            </div>
+        </aside>
+        <div className="movie-section">
+            <h2>This is the main body</h2>
+            <ul>
+                {
+                    data.map((movie ,    index)    =>(
+                        <li key={movie.Title} >
+                           <figure>
+                             <img src={movie.Poster} alt={movie.Title}  />
+                            </figure>
+                           <h3>{movie.Title}</h3>
+                           <p>Release Date:{movie.Released}</p>
+                           <button onClick={()=>{this.handleClick(movie.Title)}}>More Info</button>
+                           { this.state.Title === movie.Title ?  <Movie title={movie.Title} state={this.state.isActive} />: ""}
+                        </li>
+                        
+                          )
+
+                    )
+                
+                }
+            </ul>
+        </div>
     </>
     }
 }
+
+ function Movie(props){
+     let filterData = data.filter((m) => m.Title === props.title);
+
+    //  console.log(filterData)
+    console.log(props)
+     return <>
+     <div>
+        
+        <h3>{filterData[0].Title}</h3>
+        <p>{filterData[0].Director}</p>
+        <p>{filterData[0].Actors}</p>
+        <p>{filterData[0].Language}</p>
+    </div>
+     </>
+ }
 
 
 
