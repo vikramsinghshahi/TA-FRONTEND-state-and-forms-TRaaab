@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=width , initial-scale=value ">
+    <title>Documnets </title>
+</head>
+<body>
+    <main id="root"></main>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+    const root = document.getElementById("root");
+
+    class App extends React.Component{
+        constructor(){
+            super();
+            this.state = ({
+
+
+            })
+        };
+
+        render(){
+            return<>
+              <div>
+                 <label htmlFor="text" >Text input</label> 
+                 <input  type="text"id="text" />
+              </div>
+              <div>
+                <label htmlFor="Date"> Date input</label>
+                <input type="Date" id="Date" />
+              </div>
+              <div>
+                <label htmlFor="file"> file input</label>
+                <input type="file" id="file" />
+              </div>
+              <div>
+                <label htmlFor="Read-only"> Read-only input</label>
+                <input type="text" id="Read-only" />
+              </div>
+              <div>
+                <label htmlFor=""> Disable input</label>
+                <input type="Date" id="Date" />
+              </div>
+              <div>
+                <label htmlFor="textarea"> Text area</label>
+                <textarea id="textarea" >Enter text here...</textarea>
+              </div>
+              <div>
+                <label htmlFor="textareadisabled"> Text area Disabled</label>
+                <textarea id="textareadisabled" ></textarea>
+              </div>
+            </>
+        }
+
+    }
+    ReactDOM.render(<App />, root)
+</script>
+
+</body>
+</html>
