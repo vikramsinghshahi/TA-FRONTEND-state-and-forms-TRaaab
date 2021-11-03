@@ -24,6 +24,7 @@ class Products extends React.Component {
         }
       });
     }
+    console.log(sortedProducts);
 
     if (order === 'highest') {
       sortedProducts = sortedProducts.sort((a, b) => b.price - a.price);
@@ -47,7 +48,7 @@ class Products extends React.Component {
         <div>
           <div className="products-filter">
             <p>
-              {`${this.props.data.length} Product${
+              {`${products.length} Product${
                 this.props.data.length > 1 ? 's' : ''
               } found.`}{' '}
             </p>
@@ -59,6 +60,7 @@ class Products extends React.Component {
           <div className="flex wrap">
             {products.map((product) => (
               <Product
+                key={product.id}
                 {...product}
                 handleAddToCart={this.props.handleAddToCart}
               />

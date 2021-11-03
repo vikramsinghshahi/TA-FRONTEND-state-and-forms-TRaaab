@@ -55,7 +55,7 @@ class Cart extends React.Component {
             );
           })}
           <div className="cart-checkout">
-            <div className="flex justify-between">
+            <div className="flex justify-between subtotal">
               <p>SUBTOTAL</p>
               <p>$ {totalAmount}</p>
             </div>

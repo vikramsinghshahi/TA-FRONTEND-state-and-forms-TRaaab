@@ -12,6 +12,26 @@ class App extends React.Component {
     };
   }
 
+  // componentDidUpdate() {
+  //   this.handleUpdateLocalStorage();
+  // }
+
+  componentDidMount() {
+    if (localStorage.carts) {
+      this.setState({ cartItems: JSON.parse(localStorage.carts) || [] });
+    }
+
+    window.addEventListener('beforeunload', this.handleUpdateLocalStorage);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('beforeunload', this.handleUpdateLocalStorage);
+  }
+
+  handleUpdateLocalStorage = () => {
+    localStorage.setItem('carts', JSON.stringify(this.state.cartItems));
+  };
+
   handleAddToCart = (p) => {
     let isPresent =
       this.state.cartItems.findIndex((product) => product.id === p.id) !== -1;
@@ -44,7 +64,7 @@ class App extends React.Component {
   decrementQuantity = (id) => {
     this.setState((prevState) => {
       let updatedCartItem = prevState.cartItems.map((p) => {
-        if (p.id === id) {
+        if (p.id === id && p.quantity > 0) {
           return {
             ...p,
             quantity: p.quantity - 1,
@@ -80,11 +100,12 @@ class App extends React.Component {
       }));
     }
   };
+
   render() {
     return (
-        <>
-        <header className="header" >
-            <h1>Shopping Cart </h1>
+      <>
+        <header className="header">
+          <h1>Shopping Cart </h1>
         </header>
         <div className="wrapper flex space-between">
           <Sidebar

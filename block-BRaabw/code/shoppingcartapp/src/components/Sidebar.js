@@ -10,10 +10,11 @@ function Sidebar(props) {
   return (
     <>
       <aside className="flex-20 sidebar">
-      <h2>Sizes:</h2>
+        <h2>Sizes:</h2>
         <div className="flex wrap">
           {uniqueSizes.map((size) => (
             <span
+              key={size}
               onClick={() => props.handleClick(size)}
               className={`size ${selectedSizes.includes(size) ? 'active' : ''}`}
             >
